@@ -1,0 +1,400 @@
+//Google font
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+//animacion
+
+@mixin animacion($font, $bg) {
+  color: $font;
+  background: $bg;
+  cursor: pointer;
+}
+
+//texto
+
+@mixin titulo($color) {
+  color: $color;
+  font-size: $s-subtitle;
+  padding: 15px 5px;
+}
+
+@mixin texto($color) {
+  font-size: $s-default;
+  color: $color;
+  padding: 15px 5px;
+  line-height: $lh-text;
+}
+
+//font variable
+
+// $open-sans: "Open Sans", sans-serif;
+$open-sans: "Work Sans", sans-serif;
+
+//size (s=size)
+
+$s-default: 0.8rem;
+$s-title: 2rem;
+$s-subtitle: 1.7rem;
+$s-menu: 1.2rem;
+
+//line-heigth
+
+$lh-text: 1.9rem;
+
+//weight
+
+$fw-default: 400;
+$fw-bold: 600;
+$fw-bolder: 800;
+
+//color variable
+
+$primary: #0c2f50;
+$secondary: #004a98;
+$white: #ffffff;
+$black: #000000;
+
+//global
+
+$m-width: 1400px;
+$h-header: 60px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $open-sans;
+}
+
+a {
+  text-decoration: none;
+}
+
+//header
+
+.header {
+  background: $white;
+  width: 100%;
+  position: fixed;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: $m-width;
+    width: 100%;
+    height: $h-header;
+
+    &-logo {
+      height: $h-header - 20px;
+      margin-left: 5px;
+    }
+
+    &__btn {
+      color: $primary;
+      border: none;
+      background: none;
+      margin-right: 5px;
+      transition: 0.2s;
+
+      .fa-bars {
+        font-size: $s-subtitle;
+        padding: 10px;
+        color: inherit;
+      }
+
+      &:hover {
+        @include animacion($white, $primary);
+      }
+    }
+
+    .menu {
+      position: fixed;
+      top: 60px;
+      background: $primary;
+      width: 100%;
+      left: 100%;
+      transition: 0.2s;
+
+      &__item {
+        list-style: none;
+        color: $white;
+        padding: 5px 5px;
+
+        &-link {
+          color: inherit;
+          background: inherit;
+          font-size: $s-menu;
+        }
+
+        &:hover {
+          @include animacion($primary, $white);
+        }
+      }
+    }
+
+    .menu-active {
+      left: 0;
+    }
+  }
+}
+
+//inicio
+
+.inicio {
+  height: 100vh;
+  background-image: url(/media/bg-home.jpg);
+  background-size: cover;
+  background-position: center;
+
+  &__cont {
+    max-width: $m-width;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+
+    &__titulo {
+      background: $primary;
+      position: relative;
+      height: max-content;
+      width: max-content;
+      margin: 10px;
+
+      &-principal {
+        color: $white;
+        font-size: $s-title;
+        padding: 10px 5px;
+      }
+
+      &-secundario {
+        color: $white;
+        font-size: $s-default;
+        padding: 10px 5px;
+      }
+    }
+  }
+}
+
+//mision
+
+.mision {
+  min-height: 100vh;
+  background: $primary;
+
+  &__img {
+    height: calc(50vh + 60px);
+    overflow: hidden;
+    &-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__cont {
+    min-height: calc(50vh - 60px);
+
+    &-titulo {
+      background: $white;
+      @include titulo($black);
+    }
+
+    &-parrafo {
+      @include texto($white);
+    }
+  }
+}
+//resenias
+
+.resenias {
+  min-height: calc(100vh - 80px);
+  border: 10px solid $primary;
+  border-top: 70px solid $primary;
+
+  &__titulo {
+    @include titulo($black);
+    text-align: center;
+  }
+
+  &__contenedor {
+    &-img {
+      margin: 0px auto;
+      border-radius: 100%;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      overflow: hidden;
+
+      &-img {
+        width: 100%;
+      }
+    }
+
+    &-titulo {
+      @include titulo($black);
+      text-align: center;
+    }
+
+    &-subtitulo {
+      font-size: $s-menu;
+      text-align: center;
+    }
+
+    &-texto {
+      @include texto($black);
+    }
+  }
+}
+
+//contacto
+
+.contacto {
+  min-height: 100vh;
+  background: $primary;
+
+  &__img {
+    height: calc(50vh + 60px);
+    overflow: hidden;
+
+    &-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    &-titulo {
+      @include titulo($white);
+      text-align: center;
+    }
+
+    &__texto {
+      padding: 0 20px;
+      &__cont {
+        display: flex;
+        &-t {
+          @include texto($white);
+          &:hover {
+            @include animacion($primary, $white);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  //header
+
+  .header {
+    .nav {
+      &__btn {
+        display: none;
+      }
+
+      .menu {
+        position: relative;
+        display: flex;
+        top: 0;
+        background: none;
+        width: max-content;
+        padding: 0 5px;
+        left: 0;
+        transition: 0.2s;
+
+        &__item {
+          color: $black;
+          padding: 5px 5px;
+
+          &-link {
+            font-size: $s-default;
+          }
+
+          &:hover {
+            @include animacion($white, $primary);
+          }
+        }
+      }
+    }
+  }
+
+  //mision
+
+  .mision {
+    &__img {
+      position: absolute;
+      width: 55vw;
+      left: 45%;
+      top: 20%;
+    }
+
+    &__cont {
+      &-titulo {
+        display: flex;
+        align-items: flex-end;
+        height: 50vh;
+        padding-left: 30px;
+      }
+
+      &-parrafo {
+        width: 40vw;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  //resenias
+
+  .resenias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30vh max-content;
+    align-items: center;
+
+    &__titulo {
+      grid-column: 1/4;
+      text-align: center;
+    }
+
+    &__contenedor {
+      &-texto {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  //contacto
+
+  .contacto {
+    display: flex;
+    align-items: center;
+    &__img {
+      display: inline-block;
+      width: 50vw;
+      height: 100vh;
+      padding: 0;
+    }
+
+    &__info {
+      width: 50vw;
+
+      &__texto {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+
+        &__cont {
+          display: block;
+          width: 250px;
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}

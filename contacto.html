@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Practica Sass</title>
+    <script
+      src="https://kit.fontawesome.com/44980252ee.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html">
+          <img src="media/logo.png" alt="" class="nav-logo" />
+        </a>
+        <button class="nav__btn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="menu">
+          <li class="menu__item">
+            <a href="index.html" class="menu__item-link">Inicio</a>
+          </li>
+          <li class="menu__item">
+            <a href="mision.html" class="menu__item-link">Misión</a>
+          </li>
+          <li class="menu__item">
+            <a href="resenias.html" class="menu__item-link">Reseñas</a>
+          </li>
+          <li class="menu__item">
+            <a href="contacto.html" class="menu__item-link">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- contacto -->
+
+    <section class="contacto">
+      <div class="contacto__img">
+        <img src="media/contact.jpg" alt="" class="contacto__img-img" />
+      </div>
+
+      <div class="contacto__info">
+        <h2 class="contacto__info-titulo">Ponete en contacto</h2>
+        <div class="contacto__info__texto">
+          <div class="contacto__info__texto__cont">
+            <p class="contacto__info__texto__cont-t">Direccion:</p>
+            <a class="contacto__info__texto__cont-t" href=""
+              >Av. Ejemplo 223, Ejemplo, C.P.1111</a
+            >
+          </div>
+          <hr />
+
+          <div class="contacto__info__texto__cont">
+            <p class="contacto__info__texto__cont-t">E-mail:</p>
+            <a
+              class="contacto__info__texto__cont-t"
+              href="mailto:ejemplo@ejemplo.com"
+              >ejemplo@ejemplo.com</a
+            >
+          </div>
+          <hr />
+
+          <div class="contacto__info__texto__cont">
+            <p class="contacto__info__texto__cont-t">Teléfono:</p>
+            <a class="contacto__info__texto__cont-t" href="tel:+11"
+              >(011)-1111-1111</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script/script.js"></script>
+  </body>
+</html>
